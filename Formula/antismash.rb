@@ -25,6 +25,11 @@ class Antismash < Formula
   depends_on "python@3.12"
   depends_on "scipy"
 
+  on_linux do
+    depends_on "patchelf" => :build
+    depends_on "freetype"
+  end
+
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
     sha256 "935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"
@@ -95,11 +100,6 @@ class Antismash < Formula
     sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
   end
 
-  resource "matplotlib" do
-    url "https://files.pythonhosted.org/packages/9a/aa/607a121331d5323b164f1c0696016ccc9d956a256771c4d91e311a302f13/matplotlib-3.8.3.tar.gz"
-    sha256 "7b416239e9ae38be54b028abbf9048aff5054a9aba5416bef0bd17f9162ce161"
-  end
-
   resource "MOODS-python" do
     url "https://files.pythonhosted.org/packages/f7/34/c623e9b57e3e3f1edf030201603d8110bf9969921790d950836176be4749/MOODS-python-1.9.4.1.tar.gz"
     sha256 "b3b5e080cb0cd13c0fd175d0ee0d453fde3e42794fa7ac39a4f6db1ac5ddb4cc"
@@ -160,9 +160,11 @@ class Antismash < Formula
   end
 
   def install
+    ENV.append "CPPFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2" if OS.linux?
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     site_packages = Language::Python.site_packages(python3)
+
     venv.pip_install_and_link buildpath
     (prefix/site_packages/"homebrew-antismash.pth").write venv.site_packages
   end
