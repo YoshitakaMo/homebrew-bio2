@@ -11,6 +11,7 @@ class Coot < Formula
     root_url "http://vivace.bi.a.u-tokyo.ac.jp"
     sha256 cellar: :any,                 arm64_sonoma:   "25dc61596208a77fe58f7bd256b89cc0bdfd5559f1d020f2d8829e7a61bdd4e1"
     sha256 cellar: :any,                 sonoma:         "11075d5a3af888d328f8461d0bbddf13bec05cb6fee6877c3529bad5441c8a2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e4f5fc518322d65d7dde02ef97b4af8dbff7b3275423ace59bc0b0dd993c0b7"
   end
 
   head do
