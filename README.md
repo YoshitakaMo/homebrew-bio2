@@ -2,9 +2,9 @@
 
 ## How do I install these formulae?
 
-`brew install yoshitakamo/bio/<formula>`
+`brew install yoshitakamo/bio2/<formula>`
 
-Or `brew tap yoshitakamo/bio` and then `brew install <formula>`.
+Or `brew tap yoshitakamo/bio2` and then `brew install <formula>`.
 
 ## Documentation
 
