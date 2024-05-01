@@ -16,7 +16,7 @@ class Antismash < Formula
   depends_on "brewsci/bio/fasttree"
   depends_on "brewsci/bio/glimmerhmm"
   depends_on "brewsci/bio/hmmer@2"
-  depends_on "brewsci/bio/meme@4"
+  depends_on "brewsci/bio/meme@4.11.2"
   depends_on "brewsci/bio/muscle"
   depends_on "diamond"
   depends_on "hmmer"
