@@ -9,6 +9,13 @@ class Antismash < Formula
   license "AGPL-3.0-or-later"
   head "https://github.com/antismash/antismash.git", branch: "master"
 
+  bottle do
+    root_url "http://vivace.bi.a.u-tokyo.ac.jp"
+    sha256 cellar: :any,                 arm64_sonoma:   "03642e98fa981b3afdf0044b0c7c686dc7da3aa06479705cd3549b3696c8bf8b"
+    sha256 cellar: :any,                 sonoma:         "569775de01cca1f0c218af378c1aca0644fed01f18fb009041dae118ada5e572"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f8d6e830261642e1e57861691ee7ba2187154cf6ad2d04d4acbd6da6b12060c"
+  end
+
   depends_on "cmake" => :build # scikit-learn
   depends_on "pkg-config" => :build
   depends_on "rust" => :build # for nrpys
