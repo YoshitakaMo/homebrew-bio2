@@ -10,10 +10,10 @@ class Antismash < Formula
   head "https://github.com/antismash/antismash.git", branch: "master"
 
   bottle do
+    rebuild 1
     root_url "http://vivace.bi.a.u-tokyo.ac.jp"
-    sha256 cellar: :any,                 arm64_sonoma:   "03642e98fa981b3afdf0044b0c7c686dc7da3aa06479705cd3549b3696c8bf8b"
-    sha256 cellar: :any,                 sonoma:         "569775de01cca1f0c218af378c1aca0644fed01f18fb009041dae118ada5e572"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f8d6e830261642e1e57861691ee7ba2187154cf6ad2d04d4acbd6da6b12060c"
+    sha256 cellar: :any,                 arm64_sonoma:   "c9e8993f35b7a8f7e0afbe58d394c78604456cd799a1ae9a1b0cb04420eb626a"
+    sha256 cellar: :any,                 sonoma:         "01f88f703313da5d65909b656d03431c3ca5ffa1d758aa8f28f5861045015bc4"
   end
 
   depends_on "cmake" => :build # scikit-learn
