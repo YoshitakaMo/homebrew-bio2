@@ -9,9 +9,9 @@ class Coot < Formula
 
   bottle do
     root_url "http://vivace.bi.a.u-tokyo.ac.jp"
-    sha256 cellar: :any,                 arm64_sonoma:   "25dc61596208a77fe58f7bd256b89cc0bdfd5559f1d020f2d8829e7a61bdd4e1"
-    sha256 cellar: :any,                 sonoma:         "11075d5a3af888d328f8461d0bbddf13bec05cb6fee6877c3529bad5441c8a2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e4f5fc518322d65d7dde02ef97b4af8dbff7b3275423ace59bc0b0dd993c0b7"
+    sha256 cellar: :any,                 arm64_sonoma:   "06a5868382c9ac59b77d7c1ccba1d870c91f48ec4d2e2a211efa06cfb422daf5"
+    sha256 cellar: :any,                 sonoma:         "717fc1ec363bf8e0ae7e5f311c31bcabddd6d389fd3e8cbd52f38260e32d6c1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   ""
   end
 
   head do
@@ -118,6 +118,8 @@ class Coot < Formula
     rdkit_prefix = Formula["rdkit"].opt_prefix
     fftw2_prefix = Formula["clipper4coot"].opt_prefix/"fftw2"
 
+    # Fix libdwarf version
+    inreplace "./configure", "libdwarf >= 0.7", "libdwarf <= 0.11"
     args = %W[
       --prefix=#{prefix}
       --with-enhanced-ligand-tools
